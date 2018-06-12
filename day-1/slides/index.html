@@ -1,0 +1,548 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+                <section>
+                    <h2>Introduction to Programming with Python</h2>
+                    <p>Research Computing Services</p>
+                    <p>Northwestern IT</p>
+                </section>
+
+                <section>
+                    <h2>Why Python?</h2>
+                    <p class="fragment">High-level language (no memory management)</p>
+                    <p class="fragment">Straightforward syntax</p>
+                    <p class="fragment">"Batteries included" philosophy</p>
+                    <p class="fragment">Popular (easy to Google!)</p>
+                </section>
+
+                <section>
+                    <h2>Running Python</h2>
+                    <p>Interactive mode:</p>
+                    <pre>
+$ python3.6
+Python 3.6.3 (default, Oct  6 2017, 00:00:00)
+[GCC 4.8.4] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> </pre>
+                </section>
+
+                <section>
+                    <h2>Running Python</h2>
+                    <p>Interpreter mode:</p>
+                    <pre>$ python3.6 myscript.py</pre>
+                </section>
+    
+				<section><h2>Python as a calculator</h2>
+					<pre><code class="python" data-trim contenteditable>
+                        $ python3.6
+                        Python 3.6.3 (default, Oct  6 2017, 00:00:00)
+                        [GCC 4.8.4] on linux
+                        Type "help", "copyright", "credits" or "license" for more information.
+                        >>> 2 + 2
+                        4
+                   </code></pre>
+                </section>
+
+				<section><h2>Python as a calculator</h2>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> 50 - 5*6
+                        20
+                        >>> (50 - 5*6) / 4
+                        5.0
+                        >>> 8 / 5  # division always returns a floating point number
+                        1.6
+                   </code></pre>
+                </section>
+
+                <section><h2>Python as a calculator</h2>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> 17 / 3
+                        5.666666666666667
+                        >>> 17 // 3  # floor division discards the fractional part
+                        5
+                        >>> 17 % 3  # the % operator returns the remainder
+                        2
+                   </code></pre>
+                </section>
+
+                <section><h2>Python as a calculator</h2>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> 5 ** 2  # 5 squared
+                        25
+                        >>> 4 ** 1/2  # square root of 4
+                        2.0
+                   </code></pre>
+                </section>
+
+                <section><h2>Variables</h2>
+                    <p>The <code>=</code> sign assigns a value to a variable.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> width = 20
+                        >>> height = 5 * 9
+                        >>> width * height
+                        900
+                   </code></pre>
+                </section>
+
+                <section><h2>Variables</h2>
+                    <p>Variables must be created before they can be used.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> unknown_variable
+                        Traceback (most recent call last):
+                            File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+                        NameError: name 'unknown_variable' is not defined
+                   </code></pre>
+                </section>
+
+                <section><h2>Exercise 1</h2>
+                    <p>Use the Python interpreter: 5 min</p>
+                    <ul>
+                        <li>Open the Python interpreter (using Anaconda Prompt or Terminal)</li>
+                        <li>Find the answer: \[\sqrt{\frac{17}{42}} + (0.45 * 3.1) \]</li>
+                        <li>Save the answer to a variable called <code>result</code></li>
+                        <li>Print out the value of <code>result</code></li>
+                    </ul>
+                </section>
+
+                <section><h2>Strings</h2>
+                    <p>A "String" is a type of variable in Python that holds alphanumeric data.</p>
+                    <p>Strings are created in Python by surrounding text with single or double quotes.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> 'spam and eggs'
+                        'spam and eggs'
+                        >>> 'doesn\'t'  # use \' to escape the single quote...
+                        "doesn't"
+                        >>> "doesn't"  # ...or use double quotes instead
+                        "doesn't"
+                        >>> '"Yes," he said.'
+                        '"Yes," he said.'
+                        >>> "\"Yes,\" he said."
+                        '"Yes," he said.'
+                   </code></pre>
+                </section>
+
+                <section><h2>Strings</h2>
+                    <p>Strings can be stored in variables just like numbers.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> my_string_variable = 'hi I am a string 😛'
+                        >>> my_string_variable
+                        'hi i am a string 😛'
+                   </code></pre>
+                   <p class="fragment">Yep! Strings can contain emoji! (in Python 3)</p>
+                </section>
+
+                <section><h2>Strings</h2>
+                    <p>Strings can span more than one line.</p>
+                    <p>The '\n' character means "new line".</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> two_line_string = 'This is line 1.\nThis is line 2.'
+                        >>> two_line_string
+                        'This is line 1.\nThis is line 2.'
+                        >>> print(two_line_string)
+                        This is line 1.
+                        This is line 2.
+                   </code></pre>
+                </section>
+
+                <section><h2>Strings</h2>
+                    <p>Another way to create multi-line strings is with triple-quotes.</p>
+                    <p>Triple-quotes let you leave out the '\n' character.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> usage = """\
+                        ... Usage: thingy [OPTIONS]
+                        ...      -h                        Display this usage message
+                        ...      -H hostname               Hostname to connect to
+                        ... """
+                        >>> print(usage)
+                        Usage: thingy [OPTIONS]
+                            -h                        Display this usage message
+                            -H hostname               Hostname to connect to
+
+                   </code></pre>
+                </section>
+
+                <section><h2>Strings</h2>
+                    <p>Strings can be glued together with the <code>+</code> operator.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> prefix = 'super'
+                        >>> suffix = 'duper'
+                        >>> prefix + suffix
+                        'superduper'
+                        >>> one = '1'
+                        >>> two = '2'
+                        >>> one + two
+                        '12'
+                   </code></pre>
+                </section>
+
+                <section><h2>Strings</h2>
+                    <p>Strings containing numbers can be converted to numbers.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> int('10')
+                        10
+                        >>> float('10.9')
+                        10.9
+                        >>> int('1') + int('2')
+                        3
+                        >>> int('1.1')
+                        Traceback (most recent call last):
+                          File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+                        ValueError: invalid literal for int() with base 10: '1.1'
+                   </code></pre>
+                </section>
+
+                <section><h2>Types</h2>
+                    <p>Every value in Python has a "type".</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> type('abc')
+                        &lt;class 'str'&gt;
+                        >>> type(123)
+                        &lt;class 'int'&gt;
+                        >>> type(0.1)
+                        &lt;class 'float'&gt;
+                   </code></pre>
+                </section>
+
+                <section><h2>Types</h2>
+                    <p>Different types can implement operations in different ways.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> hundred_str = '100'
+                        >>> hundred_str + hundred_str
+                        '100100'
+                        >>> hundred_int = int(hundred_str)
+                        >>> hundred_int + hundred_int
+                        200
+                   </code></pre>
+                </section>
+
+                <section><h2>Types</h2>
+                    <p>Not all operations make sense for all types.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> hundred_str = '100'
+                        >>> hundred_int = int(hundred_str)
+                        >>> len(hundred_str)
+                        3
+                        >>> len(hundred_int)
+                        Traceback (most recent call last):
+                          File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+                        TypeError: object of type 'int' has no len()
+                   </code></pre>
+                </section>
+
+                <section><h2>String Indexing</h2>
+                    <p>We can use square brackets (<code>[]</code>) to access an individual character from a string.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> word = 'Python'
+                        >>> word[0]  # character in position 0
+                        'P'
+                        >>> word[5]  # character in position 5
+                        'n'
+                   </code></pre>
+                   <p>This is called <em>indexing</em>. The index of the first element is always <code>0</code>.</p>
+                </section>
+
+                <section><h2>String Indexing</h2>
+                    <p>Indexes can be negative! In this case they start from the end of the string.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> word = 'Python'
+                        >>> word[-1]  # last character
+                        'n'
+                        >>> word[-2]  # second-last character
+                        'o'
+                        >>> word[-6]
+                        'P'
+                    </code></pre>
+                </section>
+
+                <section><h2>String Slicing</h2>
+                    <p>The <code>[]</code> notation can also be used to get a substring, or <em>slice</em> of a string.</p>
+                    <p><code>[i:j]</code> where characters starting at position <code>i</code> are included, up to position <code>j</code> (which is excluded).</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> word = 'Python'
+                        >>> word[0:2]  # 0 (included) to 2 (excluded)
+                        'Py'
+                        >>> word[2:5]  # 2 (included) to 5 (excluded)
+                        'tho'
+                    </code></pre>
+                </section>
+
+                <section><h2>String Slicing</h2>
+                    <p><code>i</code>, <code>j</code>, or both may be omitted when creating a slice.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> word = 'Python'
+                        >>> word[:2]
+                        'Py'
+                        >>> word[2:]
+                        'thon'
+                        >>> word[:]
+                        'Python'
+                        >>> word[:2] + word[2:]
+                        'Python'
+                    </code></pre>
+                </section>
+
+                <section><h2>Exercise 2</h2>
+                    <ol>
+                        <li>Open the Python interpreter (using Anaconda Prompt or Terminal)</li>
+                        <li>Create a variable containing your first and last name</li>
+                        <li>Use indexing to print out the first letter of your last name</li>
+                        <li>Use slices to print out only your first name and only your last name</li>
+                        <li>Can you have Python print out how many letters are in your name?<br /><small>hint: remember the <code>len</code> function<br />hint: remember the space between your first and last names!</small></li>
+                    </ol>
+                </section>
+
+                <section><h2>Lists</h2>
+                    <p>A <code>list</code> is a data type that can contain multiple values.</p>
+                    <p>Lists are created with comma-separated values in square brackets (<code>[]</code>).</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> squares = [1, 4, 9, 16, 25]
+                        >>> squares
+                        [1, 4, 9, 16, 25]
+                    </code></pre>
+                    <p class="fragment">The elements of a list don't have to be all the same type, but usually they are.</p>
+                </section>
+
+                <section><h2>Lists</h2>
+                    <p>Lists can be indexed and sliced (just like strings).</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> squares = [1, 4, 9, 16, 25]
+                        >>> squares[0]
+                        1
+                        >>> squares[-1]
+                        25
+                        >>> squares[-3:]  # slicing returns a new list
+                        [9, 16, 25]
+                        >>> word = 'Python'
+                        >>> word[0]
+                        'P'
+                    </code></pre>
+                    <p class="fragment">This is no accident! Different types supporting the same operations is a fundamental part of Python.</p>
+                </section>
+
+                <section><h2>Lists</h2>
+                    <p>The <code>len</code> function works on lists just like strings.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> squares = [1, 4, 9, 16, 25]
+                        >>> len(squares)
+                        5
+                        >>> word = 'Python'
+                        >>> len(word)
+                        6
+                    </code></pre>
+                </section>
+
+                <section><h2>Lists</h2>
+                    <p>Lists can be concatenated with the <code>+</code> operator, or appended to with their <code>.append</code> method.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> squares = [1, 4, 9, 16, 25]
+                        >>> squares + [36, 49]   # concatenation returns a new list
+                        [1, 4, 9, 16, 25, 36, 49]
+                        >>> squares.append(36)  # `append` modifies the list in-place
+                        >>> squares.append(49)
+                        >>> squares
+                        [1, 4, 9, 16, 25, 36, 49]
+                    </code></pre>
+                </section>
+
+                <section><h2>Lists</h2>
+                    <p>Unlike strings, lists are <em>mutable</em>, meaning it is possible to change their content.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> cubes = [1, 8, 27, 65, 125]  # whoops!
+                        >>> cubes[3] = 4 ** 3
+                        >>> cubes
+                        [1, 8, 27, 64, 125]
+                        >>> word = 'Pythom'
+                        >>> word[5] = 'n'
+                        Traceback (most recent call last):
+                          File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+                        TypeError: 'str' object does not support item assignment
+                    </code></pre>
+                </section>
+
+                <section><h2>Lists</h2>
+                    <p>It is possible to assign to list slices, which can change the size of a list.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+                        >>> letters
+                        ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+                        >>> # replace some values
+                        >>> letters[2:5] = ['C', 'D', 'E']
+                        >>> letters
+                        ['a', 'b', 'C', 'D', 'E', 'f', 'g']
+                        >>> # now remove them
+                        >>> letters[2:5] = []
+                        >>> letters
+                        ['a', 'b', 'f', 'g']
+                    </code></pre>
+                </section>
+
+                <section><h2>Lists</h2>
+                    <p>Lists can contain other lists.</p><p>These are called "nested lists".</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> letters = ['a', 'b', 'c']
+                        >>> numbers = [1, 2, 3]
+                        >>> nested_list = [letters, numbers]
+                        >>> nested_list
+                        [['a', 'b', 'c'], [1, 2, 3]]
+                        >>> nested_list[0]
+                        ['a', 'b', 'c']
+                        >>> nested_list[0][1]
+                        'b'
+                    </code></pre>
+                </section>
+
+                <section><h2>Exercise 3</h2>
+                    <ol>
+                        <li>Open the Python interpreter (using Anaconda Prompt or Terminal)</li>
+                        <li>Create a list containing three of your favorite words</li>
+                        <li>Print each word out, using its position in the list</li>
+                        <li>Print a sentence containing each of these words, using its position in the list. E.g. "One of my favorite words is ___."<br />
+                        <small>hint: remember that <code>+</code> can be used to concatenate strings.</small></li>
+                    </ol>
+                </section>
+
+                <section><h2>The <code>if</code> Statement</h2>
+                    <p>The simplest "control flow" statement is the <code>if</code> statement.</p>
+                    <p>It makes the program do something only if the value being tested is true.</p>
+                    <p>It makes the program do something only if the value being tested is true.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> value = 3
+                        >>> if value &gt; 1:
+                        ...     print("The value is greater than 1.")
+                        ...
+                        The value is greater than 1.
+                        >>> if value &lt; 1:
+                        ...     print("The value is less than 1.")  # will not run
+                        ...
+                        >>> 
+                    </code></pre>
+                </section>
+
+                <section><h2>Boolean Values</h2>
+                    <p>The <code>if</code> keyword is followed by a <em>boolean expression</em>.</p>
+                    <p>That is, something that is evaluated to be either True or False.</p>
+                    <p class="fragment">In python, every object can be evaluated in a boolean context.</p>
+                    <p class="fragment">The following evaluate to false: <code>False</code>, <code>None</code>, <code>0</code>, <code>""</code> (the empty string), and empty containers (lists, dictionaries, etc).</p>
+                    <p class="fragment">Everything else evaluates to true.</p>
+                </section>
+
+                <section><h2>Comparison Operators</h2>
+                    <p>Comparison operators yield a value of <code>True</code> or <code>False</code>.</p>
+                    <p><code>&lt; &lt;= &gt; &gt;= == !=</code></p>
+                    <pre><code class="python" data-trim contenteditable>
+                        >>> 1 > 2
+                        False
+                        >>> 1.1 <= 2.0
+                        True
+                        >>> 1 == 2
+                        False
+                    </code></pre>
+                </section>
+
+                <section><h2>Comparison Operators</h2>
+                    <p>Comparison operators yield a value of <code>True</code> or <code>False</code>.</p>
+                    <p><code>is [not]</code></p>
+                    <pre><code class="python" data-trim contenteditable>
+                        >>> a = [1, 2, 3]
+                        >>> b = [1, 2, 3]
+                        >>> a == b
+                        True
+                        >>> a is b
+                        False
+                        >>> a = b
+                        >>> a is b
+                        True
+                    </code></pre>
+                </section>
+
+                <section><h2>Comparison Operators</h2>
+                    <p>Comparison operators yield a value of <code>True</code> or <code>False</code>.</p>
+                    <p><code>[not] in</code></p>
+                    <pre><code class="python" data-trim contenteditable>
+                        >>> a = [1, 2, 3]
+                        >>> 2 in a
+                        True
+                        >>> 1 not in a
+                        False
+                        >>> "Hello" in "Hello, world!"
+                        True
+                    </code></pre>
+                </section>
+
+                <section><h2>The <code>if</code> Statement</h2>
+                    <p><code>if</code> statements can contain multiple <code>elif</code> parts and one <code>else</code> part.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> x = int(input("Please enter an integer: "))
+                        Please enter an integer: 42
+                        >>> if x < 0:
+                        ...     x = 0
+                        ...     print('Negative changed to zero')
+                        ... elif x == 0:
+                        ...     print('Zero')
+                        ... elif x == 1:
+                        ...     print('Single')
+                        ... else:
+                        ...     print('More than one')
+                        ...
+                        More than one
+                    </code></pre>
+                </section>
+
+                <section><h2>Exercise 4</h2>
+                    <ol>
+                        <li>Use the <code>input</code> function to get a year from the user and save into a variable</li>
+                        <li>Use an <code>if</code> statement to print out whether it is a leap year or not<br /><small>Hint: remember the <code>%</code> operator</small></li>
+                        <li>Use the <code>input</code> function to prompt the user for a percentage, then use an if statement to print out the corresponding letter grade</li>
+                    </ol>
+                </section>
+
+            </div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                math: {
+                    mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+                    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+                },
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/math/math.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,5 @@
+{
+    "python.linting.pylintEnabled": false,
+    "python.pythonPath": "C:\\Users\\mtr932\\AppData\\Local\\Continuum\\Anaconda3\\python.exe",
+    "editor.detectIndentation": false
+}
