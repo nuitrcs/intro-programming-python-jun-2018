@@ -280,7 +280,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 
                 <section><h2>String Slicing</h2>
                     <p>The <code>[]</code> notation can also be used to get a substring, or <em>slice</em> of a string.</p>
-                    <p><code>[i:j]</code> where characters starting at position <code>i</code> are included, up to position <code>j</code> (which is excluded).</p>
+                    <p><code>[i:j:step]</code> where characters starting at position <code>i</code> are included, up to position <code>j</code> (which is excluded).</p>
+                    <p>The <code>step</code> defaults to 1.</p>
 					<pre><code class="python" data-trim contenteditable>
                         >>> word = 'Python'
                         >>> word[0:2]  # 0 (included) to 2 (excluded)
@@ -339,6 +340,18 @@ Type "help", "copyright", "credits" or "license" for more information.
                         >>> word = 'Python'
                         >>> word[0]
                         'P'
+                    </code></pre>
+                    <p class="fragment">This is no accident! Different types supporting the same operations is a fundamental part of Python.</p>
+                </section>
+
+                <section><h2>Lists</h2>
+                    <p>List slices can have a <code>step</code> other than 1.</p>
+					<pre><code class="python" data-trim contenteditable>
+                        >>> squares = [1, 4, 9, 16, 25, 36, 49]
+                        >>> squares[0::2]
+                        [1, 9, 25, 49]
+                        >>> squares[4::-1]
+                        [25, 16, 9, 4, 1]
                     </code></pre>
                     <p class="fragment">This is no accident! Different types supporting the same operations is a fundamental part of Python.</p>
                 </section>
