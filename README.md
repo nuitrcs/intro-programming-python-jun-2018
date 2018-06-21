@@ -32,10 +32,10 @@ Below is an outline of the topics that will be covered each day:
 - Tuples
 - Sets
 - Functions
-- Opening files
 
 ### Day 3
-- Comprehensions
-- Builtins and the standard library
+- Opening files
+- Builtins and the standard library (documentation pages)
 - Installing and importing packages
-- Writing and running scripts
+- Writing and running scripts (spyder)
+- debugging (print statements, reading stack traces)
