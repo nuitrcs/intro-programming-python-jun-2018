@@ -33,6 +33,9 @@ Below is an outline of the topics that will be covered each day:
 - Sets
 - Functions
 
+The materials for Day 2 are mostly Jupyter Notebooks. To view, launch jupyter
+notebook in this directory, then open the notebooks in the `day-2` folder.
+
 ### Day 3
 - Opening files
 - Builtins and the standard library (documentation pages)
