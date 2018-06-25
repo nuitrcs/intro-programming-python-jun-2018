@@ -94,7 +94,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 					<pre><code class="python" data-trim contenteditable>
                         >>> 5 ** 2  # 5 squared
                         25
-                        >>> 4 ** 1/2  # square root of 4
+                        >>> 4 ** (1/2)  # square root of 4
                         2.0
                    </code></pre>
                 </section>
@@ -354,7 +354,6 @@ Type "help", "copyright", "credits" or "license" for more information.
                         >>> squares[4::-1]
                         [25, 16, 9, 4, 1]
                     </code></pre>
-                    <p class="fragment">This is no accident! Different types supporting the same operations is a fundamental part of Python.</p>
                 </section>
 
                 <section><h2>Lists</h2>
@@ -504,6 +503,19 @@ Type "help", "copyright", "credits" or "license" for more information.
                         False
                         >>> "Hello" in "Hello, world!"
                         True
+                    </code></pre>
+                </section>
+
+                <section><h2>Combining Comparison Operators</h2>
+                    <p>Use the <code>and</code> and <code>or</code> keywords to combine multiple comparisons into a single test.</p>
+                    <pre><code class="python" data-trim contenteditable>
+                        >>> a = 50
+                        >>> a >= 50 and a < 60
+                        True
+                        >>> a < 0 or a > 10
+                        True
+                        >>> a < 0 or a > 100
+                        False
                     </code></pre>
                 </section>
 
