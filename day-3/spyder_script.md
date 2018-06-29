@@ -92,37 +92,31 @@ for each line of data:
         put the ave for the day into a list
         reset the variables for the next iteration 
 
-——————
-for entry in my_data:
+### Building The Code
+In the file **data_analysis.py**, add this in main after the file has been read:
+````
+for entry in my_data[:5]:
     data_list = entry.split()
     day = data_list[0]
     jobs = data_list[6]
     print(date,jobs)
+````
+I want to confirm this is doing what I want it to without printing all 10,000 entries, so I'm only looping through a slice of the list for now.
 
-want to confirm this is what I want it to be, but don’t want to print all 10,000 entries, so:
-for entry in my_data[:5]:
-…
-for my algorithm to work, I need to compare the date to the previous entries date.  If it’s the same, I add the number of jobs to a job total
-
-add counter (include print statement)
-
-add current_date, previous_date
-
-——
-
-counter = 0
-current_record_day=0
-previous_record_day=0
+For my algorithm to work, I need to compare the date to the previous entries date.  If it’s the same, I add the number of jobs to a job total.  I need variables to keep track of this - counter, current_record_day, and previous_record_day:
+````
+**counter = 0**
+**current_record_day=0
+**previous_record_day=0
 
 for entry in my_data[0:5]:
     data_list = entry.split()
     counter = counter + 1
     current_record_day = int(data_list[0]) #wait, what was the previous day again?
-    date = int(data_list[2])
+    day = int(data_list[0])
     jobs = data_list[6]
     print(date,jobs,counter)
-
-——
+````
 now I need to count the jobs and apply logic
 —
 
