@@ -56,24 +56,41 @@ from read_file import get_file_contents
 ````
 Run the code in **data_analysis.py**.  It works as if the **get_file_contents** function was still there, because it's importing it from **read_file.py**.  
 
-###Extracting Data
+### Extracting Data
 
 In the Spyder console type len(my_data), and look in the variables inspector window to see what you can learn about my_data.
-If you access a single line of the data, you can see that it's just a string: to confirm this, in the console window, type `my_data[8]`
-We need to break this up to make it useful: type `my_data[8].split()` to break it up into a list.
-To save this into a list, type `data_list = my_data[8].split()`; to access the jobs number type `data_list[6]`.  Note that this is a string of the number.
+If you access a single line of the data, you can see that it's just a string: to confirm this, in the console window, type ```my_data[8]```
+We need to break this up to make it useful: type ```my_data[8].split()``` to break it up into a list.
+To save this into a list, type ```data_list = my_data[8].split()```; to access the jobs number type ```data_list[6]```.  Note that this is a string of the number.
 
-——
-algorithms
-how do I solve this problem?
-state the problem: get an average for each date in my dataset, put it in a dictionary
 
-how do I get the average for each date in my dataset?  Different number of entries per day, so I can’t just take 96 entries and call that a day.
+### Algorithms
+How do I write a program to analyze this data?  
+The first step is to **state the question** I'm trying to answer: Is the number of jobs trending upward, downward or staying flat?
 
-I look through each entry, find the date, compare it to the previous day’s date.  
-If it’s the same date, then add the number of jobs to a variable called jobs_total.  
-If it’s a different date, then divide the jobs_total by the total number of entries for that day, and put it in a dict under the mon & date.
-need to track the total number of entries for any given day
+**What I want the output of my program to be**: a plot of jobs over time so I can see the trends.
+
+Why this is tricky: I have too many variable data points to plot directly and make any sense out of it.  I want to plot the average value of jobs for each day, but my dataset has an inconsistant number of job number samples for each day.  The number of jobs is recorded every 15 minutes, except sometimes it isn’t - how to get average job numbers per day when the sample size is different every day?
+
+**State the problem**: how do I get the average for each date in my dataset?  There are a different number of entries per day, so I can’t just take 96 entries and call that a day.
+
+**State the solution**:  Look through each entry, find the date, compare it to the previous day’s date.  
+If it’s the same day, then add the number of jobs to a variable called jobs_total and read the next entry. 
+If it’s a different day, then divide the jobs_total by the total number of entries for that day, and put it in a list.
+To calculate the average, I need to track the total number of entries for any given day.
+
+**Write it in pseudocode**: 
+Open the data file 
+for each line of data:
+    get the current day    
+    get the number of jobs 
+    if the current day is still the day from the last record:
+        add the # of jobs to the total # of jobs for the day
+        increment the number of job samples for the day
+    elif the current day has changed from the last record:
+        calculate the average number of jobs for the day
+        put the ave for the day into a list
+        reset the variables for the next iteration 
 
 ——————
 for entry in my_data:
