@@ -22,7 +22,7 @@ Confirm this file exists: from the command line, cat the file contents.  Note th
 
 ## Reading from a file
 
-In a new file (menu: FILE -> NEW FILE), paste in/type the following function **get_file_contents**:
+In a new file called **data_analysis.py** (menu: FILE -> NEW FILE), paste in/type the following function **get_file_contents**:
 
 ````
 def get_file_contents(filename):    
@@ -39,18 +39,22 @@ my_data = get_file_contents(/Users/jnugent/total.jobs.dat)
 
 Note the error on the left hand of the screen:
 “invalid syntax” - IDE's help guide you to see errors quickly and suggest options to fix them.
-We need to put the file name in quotes like this:
+To fix that error we need to put the file name in quotes like this:
 ````
 my_data = get_file_contents(“/Users/jnugent/total_jobs.dat”)
 ````
-We can see this worked by typing `len(my_data)` in the console, or by examining the variable window.
-Functions can be kept in seperate files and reused, like a library of books.  
-Open a new file in Spyder to show how this function can be imported from a different file:
-  create “read_file.py” and copy the **get_file_contents** function into it, then go back to the original file.
-  Erase the function (or comment it out), and type:
+Now the code runs without errors.  Confirm this worked by typing `len(my_data)` in the console, or by examining the variable window.  my_data should now have many lines in it.
+
+## Create your own library 
+Useful, generic functions can be kept in their own files and reused from program to program. Experienced programmers may accumulate a collection of functions they have written and like to have on hand, like books in a library.  
+To show how this function can be imported from a different file:
+Open a new file called **read_file.py** in Spyder (menu: FILE -> NEW FILE) 
+Copy the **get_file_contents** function into it, then go back to the file you named **data_analysis.py**.
+In **data_analysis.py**, comment out **get_file_contents**, and type:
 ````
 from read_file import get_file_contents
 ````
+Run the code in **data_analysis.py**.  It works as if the **get_file_contents** function was still there, because it's importing it from **read_file.py**.
 
 in console: len(my_data), 
 my_data[8] -> shows it’s just a string
