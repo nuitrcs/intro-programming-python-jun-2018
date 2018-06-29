@@ -105,27 +105,27 @@ I want to confirm this is doing what I want it to without printing all 10,000 en
 
 For my algorithm to work, I need to compare the date to the previous entries date.  If it’s the same, I add the number of jobs to a job total.  I need variables to keep track of this - counter, current_record_day, and previous_record_day:
 ````
-**counter = 0**
-**current_record_day=0
-**previous_record_day=0
+counter = 0            #add this
+current_record_day=0   #add this
+previous_record_day=0  #add this
 
 for entry in my_data[0:5]:
     data_list = entry.split()
     counter = counter + 1
-    current_record_day = int(data_list[0]) #wait, what was the previous day again?
+    current_record_day = int(data_list[0])     #wait, what was the previous day again?  
     day = int(data_list[0])
     jobs = data_list[6]
     print(date,jobs,counter)
 ````
-now I need to count the jobs and apply logic
-—
-
+Previous day has to be filled with current day's value before writing over current day.
+Now I need to count the jobs and apply logic:
+````
 counter = 0
 current_date = 0
 previous_date = 0
-jobs_total = 0
-ave = 0
-ave_list = []
+jobs_total = 0       #add this
+ave = 0              #add this
+ave_list = []        #add this
 
 for entry in my_data[0:5]:
     data_list = entry.split()
@@ -141,12 +141,11 @@ for entry in my_data[0:5]:
         ave = 0	#RESET for the next calculation
         jobs_total = jobs
         counter = 1
+````
 
-—
-Give an error - division by zero.  why?  (first time through problem)
+Run this code.  It gives an error - check the stack trace and you'll see it's complaining about "division by zero".  Why?
 
-—
-
+````
 counter = 0
 current_date = 0
 previous_date = 0
@@ -158,7 +157,7 @@ for entry in my_data: #made this this whole list now
     data_list = entry.split()
     previous_date = current_date  # yesterday
     current_date = (data_list[1] + ' ' + data_list[2]) 
-    if (current_date == previous_date) or (counter == 0):
+    if (current_date == previous_date) or (counter == 0):       # the fix for the first time problem
         jobs = int(data_list[6])
         jobs_total = jobs_total + jobs  #remember to add it to itself
         counter = counter + 1
@@ -168,14 +167,13 @@ for entry in my_data: #made this this whole list now
         ave = 0	
         jobs_total = jobs
         counter = 1
+````
+Now when we run the code we have another error - ran out of the end of the list, but it kept going.  This can happen if there are empty lines at the end of the file where we are trying to extract data.  How can we fix this?
 
-——
-error - ran out of the end of the list, but it kept going.
-fix:
-
+````
 for entry in my_data:
     data_list = entry.split()
-    if data_list:   # note you can indent the block under the Edit menu
+    if data_list:                           # note you can indent the block under the Edit menu
         previous_date = current_date  # yesterday
         current_date = (data_list[1] + ' ' + data_list[2]) 
         if (current_date == previous_date) or (counter == 0):
@@ -188,8 +186,7 @@ for entry in my_data:
             ave = 0	
             jobs_total = jobs
             counter = 1
-
-——
+````
 
 so let’s plot this data.  Go to preferences in Spyder, select Run, then Execute In New Dedicated Console (may have to repeat this step)
 
