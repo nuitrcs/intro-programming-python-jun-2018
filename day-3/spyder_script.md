@@ -1,7 +1,9 @@
 
 # Writing Code in Spyder & Opening Files
 
-*From the command line, launch spyder by typing "spyder"*
+From the command line, launch spyder by typing "spyder".
+
+## Writing a file
 
 menu: FILE -> NEW FILE
 
@@ -16,12 +18,14 @@ file.write('Why? Because we can.') 
 file.close() 
 ````
 
-*from the command line, cat the file contents - there are no line breaks, fix with \n*
+Confirm this file exists: from the command line, cat the file contents.  Note there are no line breaks, fix by adding the newline character \n to the end of each line.
 
-In a new file, paste in/type the function **get_file_contents**
+## Reading from a file
+
+In a new file (menu: FILE -> NEW FILE), paste in/type the following function **get_file_contents**:
 
 ````
-def get_file_contents(filename):
+def get_file_contents(filename):    
     contents = []
     with open(filename, 'r') as f:
         for line in f:
