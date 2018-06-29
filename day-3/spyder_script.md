@@ -187,26 +187,23 @@ for entry in my_data:
             jobs_total = jobs
             counter = 1
 ````
+The code is running cleanly now, so let’s plot the ave data list to look for trendlines.  To enable Spyder to display a plot, go to preferences in Spyder, select **Run**, then **Execute In New Dedicated Console** (may have to repeat this step at points if Spyder stops displaying plots.)
 
-so let’s plot this data.  Go to preferences in Spyder, select Run, then Execute In New Dedicated Console (may have to repeat this step)
-
-At the top:
-'''
+At the top of **data_analysis.py**, we need to import a library to help us create the plot:
+````
 import matplotlib.pyplot as plt
 from read_file import get_file_contents
-    
-#main body
-——
-
-at the bottom:
+````
+At the very bottom of **data_analysis.py** add:
+````
 plt.plot(ave_list)
 plt.ylabel('number of jobs')
 plt.xlabel('number of days')
 plt.show()
+````
+Run this code.  
 
-———
+You can run your program from the command line as well - Spyder has written your code into a stand-alone file that doesn't require a GUI to run it.  Just type `python <path to data_analysis.py>` at the command line.
 
-illustrate how to do this from the command line
-
-EXERCISE:
-using this script as a starting point, plot weekly averages instead of daily averages
+## EXERCISE
+This usage trendline isn't very clear.  Using this script as a starting point, plot weekly averages instead of daily averages to see if that brings more clarity.
