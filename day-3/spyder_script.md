@@ -54,13 +54,14 @@ In **data_analysis.py**, comment out **get_file_contents**, and type:
 ````
 from read_file import get_file_contents
 ````
-Run the code in **data_analysis.py**.  It works as if the **get_file_contents** function was still there, because it's importing it from **read_file.py**.
+Run the code in **data_analysis.py**.  It works as if the **get_file_contents** function was still there, because it's importing it from **read_file.py**.  
 
-in console: len(my_data), 
-my_data[8] -> shows it’s just a string
-my_data[0].split() -> break it up into a list
-data_list = my_data[0].split()
-data_list[6] -> string of my value
+###Extracting Data
+
+In the Spyder console type len(my_data), and look in the variables inspector window to see what you can learn about my_data.
+If you access a single line of the data, you can see that it's just a string: to confirm this, in the console window, type `my_data[8]`
+We need to break this up to make it useful: type `my_data[8].split()` to break it up into a list.
+To save this into a list, type `data_list = my_data[8].split()`; to access the jobs number type `data_list[6]`.  Note that this is a string of the number.
 
 ——
 algorithms
