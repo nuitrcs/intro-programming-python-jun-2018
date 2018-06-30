@@ -133,13 +133,13 @@ ave_list = []        #add this
 
 for entry in my_data[0:5]:
     data_list = entry.split()
-    previous_date = current_date  # yesterday
+    previous_date = current_date    # yesterday
     current_date = (data_list[1] + ' ' + data_list[2]) 
     if current_date == previous_date:
         jobs = data_list[6]
         jobs_total = jobs_total + jobs  #remember to add it to itself
-        counter = counter + 1
-    elif current_date != previous_date:
+        counter = counter + 1       # counter has to move here so I don't increment it incorrectly if it's the elif case
+     elif current_date != previous_date:
         ave = jobs_total/(counter)
         ave_list.append(ave)
         ave = 0	#RESET for the next calculation
